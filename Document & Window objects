@@ -1,0 +1,53 @@
+Differences between Document and Window Objects
+The document is part of BOM (browser object model) and dom (Document object model)
+The window is part of BOM, not DOM. Properties of document objects such as title, body, cookies,
+etc can also be accessed by a window like this window. document.title. Properties of the window object cannot be accessed by the document object.
+
+document.property_name;
+document.method_name;
+window.property_name;
+window.method_name;
+
+// this code is not inside a function
+var global1=22;
+function test(){
+  var local=88;
+  window.global2=99;
+  console.log(local);//logs 88 because
+    // local is available within the body
+    // of this function
+  console.log(global1);//logs 22
+}
+console.log(typeof local);//logs undefined becaue were
+  // outside the funciton body
+test();
+console.log(global2);//logs 99 because we added
+   // global2 as a property of window
+window===window.window.window;//is true
+var x = 10;
+
+On the difference between $(document) and $(window)
+First of all, So $(document), this is getting the document object $(window) is the object that gets the window,
+which is the browser client area It’s pretty straightforward to give you an example $(document).height()$(window).
+height() Notice that the page has a scroll bar And then print out the size of th
+
+$(document).height()
+$(window).height()
+Difference between document.addEventListener and window.addEventListener?
+The document and window are different objects and they have some different events.
+Using addEventListener() on them listens to events destined for a different object.
+You should use the one that actually has the event you are interested in. For example,
+there is a "resize" event on the window"resize" event on the window
+
+function onBodyLoad(){
+  document.addEventListener("deviceready", onDeviceReady, false);
+  document.addEventListener("touchmove", preventBehavior, false);
+  
+  window.addEventListener('shake', shakeEventDidOccur, false);
+}
+<p>Some paragraph.</p>
+<script>
+  window.addEventListener("click", () => {
+    console.log("Test");
+  });
+</script>
